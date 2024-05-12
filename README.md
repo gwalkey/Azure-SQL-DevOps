@@ -1,5 +1,5 @@
 # Azure-SQL-DevOps
 
-= Build Pipeline =
+## Build Pipeline 
 
-=Release Pipeline =
+## Release Pipeline 
