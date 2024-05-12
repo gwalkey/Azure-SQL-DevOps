@@ -3,3 +3,5 @@
 ## Build Pipeline 
 
 ## Release Pipeline 
+* Using KeyVault
+* CI/CD Triggers
