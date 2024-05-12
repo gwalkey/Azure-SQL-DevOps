@@ -1,0 +1,35 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  vmImage: windows-latest
+  
+steps:
+- task: VSBuild@1
+  displayName: 'Build solution AW_LT/AdventureWorks_Lite.sln'
+  inputs:
+    solution: 'AW_LT/AdventureWorks_Lite.sln'
+    msbuildArgs: '/p:DeployOnBuild=true   /p:WebPublishMethod=Package  /p:PackageAsSingleFile=true   /p:SkipInvalidConfigurations=true   /p:PackageLocation="$(build.artifactstagingdirectory)\\"   /p:DropObjectsNotInSource=false'
+    platform: 'any cpu'
+    configuration: release
+    clean: true
+    msbuildArchitecture: x64
+
+- task: CopyFiles@1
+  displayName: 'Copy Dacpac to: $(Build.ArtifactStagingDirectory)'
+  inputs:
+    SourceFolder: 'AW_LT/AdventureWorks_Lite'
+    Contents: '**\bin\**'
+    TargetFolder: '$(build.artifactstagingdirectory)'
+    CleanTargetFolder: true
+    OverWrite: true
+    
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: AW_LT'
+  inputs:
+    ArtifactName: 'AW_LT'
