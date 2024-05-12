@@ -25,5 +25,3 @@ Devops can automate the updates to your live SQL Servers
 * Using KeyVault to hold your SQL admin passwords
 * Configure CI/CD Triggers
 * Assign Approvals and Notifications
-
-* 
