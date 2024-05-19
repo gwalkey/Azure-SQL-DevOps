@@ -2,7 +2,7 @@ Classic Editor (GUI) Build Pipeline
 ------------------------------------
 1) Pipelines, New Pipeline, Use the Classic Editor
 2) Select a Source - Azure Repos Git - Team Project - Repo - Branch
-3) Start with Empty Job
+3) Select a Template, Start with Empty Job
 4) Give the Pipeline a Name - SQL Saturday Build
 5) Agent Pool - Azure Pipelines
 6) Agent Specification - windows-latest
@@ -19,18 +19,18 @@ Classic Editor (GUI) Build Pipeline
 	b) Solution - Use Browse ellipsis to find your SLN file
 	c) Visual Studio Version - Latest
 	d) MSBuild Arguments
-		i)   /p:DeployOnBuild=true
-		ii)  /p:WebPublishMethod=Package
-		iii) /p:PackageAsSingleFile=true
-		iv)  /p:SkipInvalidConfigurations=true
-		v)   /p:PackageLocation="$(build.artifactstagingdirectory)\\"
-		vi)  /p:DropObjectsNotInSource=false
-	e) Platform - any cpu
+/p:DeployOnBuild=true
+/p:WebPublishMethod=Package
+/p:PackageAsSingleFile=true
+/p:SkipInvalidConfigurations=true
+/p:PackageLocation="$(build.artifactstagingdirectory)\\"
+/p:DropObjectsNotInSource=false
+	e) Platform - x64
 	f) Configuration - release
 	g) Enable Clean
 10) Edit Copy Files Task
 	a) Display Name - Copy Dacpac to intermediate
-	b) Source Folder - Use Browse ellipsis button
+	b) Source Folder - Use Browse ellipsis button - AW_LT/AdventureWorks_Lite
 	c) Contents - **\bin\** - "copies all files recursively from any bin folder"
 	d) Target Folder - $(build.artifactstagingdirectory)
 11) Edit Publish Build Artifacts

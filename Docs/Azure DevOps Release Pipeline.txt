@@ -8,8 +8,8 @@ Release Pipeline with Keyvault
 	b) Source (build pipeline) - dropdown - select build pipeline - "SQL Saturday Build"
 	c) Default Version - pick a Build - latest
 	d) Source Alias - filled in when you select the build
-5) Click Add
-6) Stages - "click on 1 job, 0 tasks"
+	e) Click Add
+6) Stages - "Click on 1 job, 0 tasks"
 	a) Add a Stage Name - "Production"
 7) Click on Agent Job
 	a) Display Name
@@ -27,12 +27,12 @@ Release Pipeline with Keyvault
 	f) Save the Variable Group
 	g) Release Variable - Link Variable Group - Scope - Release - Link
 9) Edit Azure SQL Database Deployment
-	a) Display Name
+	a) Display Name - SQL Saturday Release
 	b) Azure Service Connection Type - Azure Resource Manager
 		Segway into DevOps Project Service Connection into your Azure Subscription that hosts your SQL Server
 	c) Azure Subscription - Select Your Sub
 	d) Authentication Type - SQL Server Auth
-	e) Azure SQL Server - yoursqlserver.database.windows.net
+	e) Azure SQL Server - insyncvasql.database.windows.net
 	f) Database - AW_LT
 	g) Login - sqladmin
 	h) Password - use the KeyVault secret as $(sqluserpassword)
